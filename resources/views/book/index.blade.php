@@ -21,7 +21,6 @@
                 </div>
               </div>
             </li>
-<<<<<<< HEAD
            <li class="lists__item">
               <div class="list_item_inner">
                 <img  class="book" src="/image/BookReviewLogo2.png" alt="本の画像">
@@ -70,9 +69,6 @@
           <!-- テンプレート挿入部分 -->
         </ul>
            
-=======
-
->>>>>>> 28caf8e7e3cb644fe0df472201e12a0d98b6c097
       </div>
       <div class="more_book">
         <button type="submit" class="more_book_btn">もっと見る</button>

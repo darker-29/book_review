@@ -2,6 +2,7 @@
   position: fixed;
   display: flex;
   top: 0;
+  height: 80px;
   width: 100%;
   background-color: #a4d754;
 }
@@ -69,4 +70,46 @@
   color: #fff;
   float: right;
   margin-bottom: 10px;
+}
+
+/* indexの　style */
+
+.brand-header {
+  width:80%;
+  padding: 30px 0 10px;
+  margin: 80px 20px 5px 100px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #aaa;
+  border-bottom: solid 3px #ccc;
+}
+
+.lists {
+  display: flex;
+  width: 80%;
+  margin: 10px 20px 5px 100px;
+  border-bottom: solid 3px #ccc;
+}
+
+.lists__item {
+  margin-left: 100px;
+}
+
+.list_item_inner {
+  display: flex;
+}
+
+.list_item_info {
+  margin-left: 30px;
+}
+
+.lists__item__title {
+  color: #a4d754;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+img.book {
+  width: 200px;
+  height:250px;
 }

@@ -72,9 +72,15 @@
   margin-bottom: 10px;
 }
 
-/* indexの　style */
+/* ---------indexのstyle --------- */
 
-.brand-header {
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.index-header {
   width:80%;
   padding: 30px 0 10px;
   margin: 80px 20px 5px 100px;
@@ -91,25 +97,124 @@
   border-bottom: solid 3px #ccc;
 }
 
+.list__content {
+  margin-bottom: 20px;
+}
+
 .lists__item {
   margin-left: 100px;
 }
 
 .list_item_inner {
   display: flex;
-}
-
-.list_item_info {
-  margin-left: 30px;
-}
-
-.lists__item__title {
-  color: #a4d754;
-  font-size: 30px;
-  font-weight: bold;
+  width: 450px;
+  margin-bottom: 15px;
 }
 
 img.book {
   width: 200px;
   height:250px;
 }
+
+.list_item_info {
+  margin-left: 30px;
+}
+
+.bok_info {
+  float: right;
+  display: block;
+}
+
+.lists__item__title {
+  float: right;
+  color: #a4d754;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.lists__item__author {
+  float: right;
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.eval {
+  color: #6f767a;
+  font-size: 20px;
+  margin-top: 150px;
+}
+
+.lists__item__review {
+  margin-top: 10px;
+}
+
+.more_book {
+  margin-bottom: 100px;
+  text-align: center;
+}
+
+.more_book_btn {
+  width: 300px;
+  padding: 10px 0;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #a4d754;
+  outline: none;
+  border-radius: 10px;
+}
+
+.more_book_btn:hover {
+  opacity: .7;
+}
+
+.more_book_btn:active {
+  position: relative;
+  top: 2px;
+}
+
+/* ---------showのstyle --------- */
+
+.container {
+  display: flex;
+  margin-top: 60px;
+}
+
+
+.side-left {
+  float: left;
+  width: 300px;
+  height: 500px;
+  margin-top: 60px;
+  margin-left: 50px;
+  background-color: #ccc;
+  border-radius: 20px;
+}
+.side-right {
+  width: 70%;
+  height: 500px;
+  margin-top: 60px;
+  margin-left: 50px;
+  background-color: #a4d754;
+  border-radius: 20px;
+}
+
+.show-header {
+  width:80%;
+  padding: 30px 0 10px;
+  /* margin: 80px 20px 5px 100px; */
+  font-size: 30px;
+  font-weight: bold;
+  color: #aaa;
+  border-bottom: solid 3px #ccc;
+}
+
+
+
+
+
+
+
+
+

@@ -98,14 +98,14 @@
                 console.log(data.Items);//data.Items 配列
                 console.log(book);
               listsItem += "<li class='lists__item'>" + //代入演算子　listsItemにeachでループすることに<li>を１つずつ格納していく
+                                "<form method='GET' id=" + book.Item.isbn + ">" +
                                 "<div class='lists__item__inner'>" +
-                                    "<a href='" +book.Item.itemUrl+ "' class='lists__item__link' target='_blank'>" +
-                                    "</a>" +
                                     "<img src='"+ book.Item.largeImageUrl + "' class='lists__item__img' alt=''>" +
                                     "<p class='lists__item__detail'>" + book.Item.title + "</p>" +
                                     "<p class='lists__item__detail'>" + book.Item.author + "</p>" +
-                                    "<p class='lists__item__detail'>" + book.Item.isbn + "</p>" +
+                                    "<input type='hidden' class='lists__item__detail' name='isbn' value=" + book.Item + "></input>" +
                                 "</div>" +
+                                "</form>" +
                             "</li>";
             });
             $('.lists').prepend(listsItem);

@@ -36,11 +36,7 @@
                 </div>
               </div>
             </li>
-          <!-- テンプレート挿入部分 -->
-        </ul>
-        <ul class="lists">
-           <!-- テンプレート挿入部分 -->
-           <li class="lists__item">
+            <li class="lists__item">
               <div class="list_item_inner">
                 <img  class="book" src="/image/BookReviewLogo3.png" alt="本の画像">
                 <div class="list_item_info">
@@ -72,6 +68,7 @@
             </li>
           <!-- テンプレート挿入部分 -->
         </ul>
+           
       </div>
       <div class="more_book">
         <button type="submit" class="more_book_btn">もっと見る</button>

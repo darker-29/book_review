@@ -186,12 +186,22 @@ img.book {
 .side-left {
   float: left;
   width: 300px;
-  height: 500px;
+  height: 600px;
   margin-top: 60px;
   margin-left: 50px;
+  padding:30px;
+  max-width: 50%;
   background-color: #ccc;
   border-radius: 20px;
+  box-sizing: border-box;
 }
+
+.show-book {
+  width: 200px;
+  height:250px;
+  text-align: center;
+}
+
 .side-right {
   width: 70%;
   height: 500px;

@@ -98,15 +98,20 @@
                 console.log(data.Items);//data.Items 配列
                 console.log(book);
               listsItem += "<li class='lists__item'>" + //代入演算子　listsItemにeachでループすることに<li>を１つずつ格納していく
-                                "<form method='GET' id=" + book.Item.isbn + ">" +
-                                "<div class='lists__item__inner'>" +
-                                    "<img src='"+ book.Item.largeImageUrl + "' class='lists__item__img' alt=''>" +
-                                    "<p class='lists__item__detail'>" + book.Item.title + "</p>" +
-                                    "<p class='lists__item__detail'>" + book.Item.author + "</p>" +
-                                    "<input type='hidden' class='lists__item__detail' name='isbn' value=" + book.Item + "></input>" +
+                            "<div class='list_item_inner'>" +
+                                "<img  class='book' src='"+ book.Item.largeImageUrl + "' alt='" + book.Item.title + "'>" +
+                                "<div class='list_item_info'>" +
+                                "<div class='book_info'>" +
+                                    "<p class='lists__item__title clearfix'>"+ book.Item.title +"</p>" +
                                 "</div>" +
-                                "</form>" +
-                            "</li>";
+                                    "<p class='lists__item__author'>" + book.Item.author +"</p>" +
+                                "<div class='eval'>" +
+                                    "<p class='lists__item__evaluation'>平均評価:★★★★★</p>" +
+                                    "<p class='lists__item__review'>レビュー件数：10</p>"
+                                "</div>"
+                                "</div>"
+                            "</div>"
+                            "</li>"
             });
             $('.lists').prepend(listsItem);
         }

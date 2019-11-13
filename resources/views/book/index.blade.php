@@ -1,7 +1,7 @@
 @extends ('common.layout')
 @section ('content')
 
-<h2 class="brand-header">書籍一覧or検索結果</h2>
+<h2 class="index-header">書籍一覧or検索結果</h2>
 <div class="wrap">
       <div class="container">
         <ul class="lists">

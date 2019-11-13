@@ -12,5 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('book.index');
 });
+Route::get('/index', function () {
+    return view('book.index');
+});
+
+Route::get('book', ['as' => 'book.index', 'uses' => 'bookController@index']);

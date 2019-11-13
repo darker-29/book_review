@@ -17,5 +17,8 @@ Route::get('/', function () {
 Route::get('/index', function () {
     return view('book.index');
 });
+Route::get('/show', function () {
+    return view('book.show');
+});
 
 Route::get('book', ['as' => 'book.index', 'uses' => 'bookController@index']);

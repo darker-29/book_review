@@ -1,9 +1,14 @@
 @extends ('common.layout')
 @section ('content')
 
-<h2 class="brand-header">レビュー一覧</h2>
 <div class="wrap">
-      <div class="container">
-      </div>
+  <div class="container">
+    <div class="side-left">
+
+    </div>
+    <div class="side-right">
+      <h2 class="show-header">レビュー一覧</h2>
+    </div>
+  </div>
 </div>
 @endsection

@@ -3,7 +3,7 @@
 
 <h2 class="index-header">書籍一覧or検索結果</h2>
 <div class="wrap">
-      <div class="container">
+      <div class="content">
         <ul class="lists">
            <!-- テンプレート挿入部分 -->
            <li class="lists__item">
@@ -73,5 +73,8 @@
           <!-- テンプレート挿入部分 -->
         </ul>
       </div>
+      <div class="more_book">
+        <button type="submit" class="more_book_btn">もっと見る</button>
+    </div>
     </div>
 @endsection

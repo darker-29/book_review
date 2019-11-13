@@ -107,6 +107,7 @@
 
 .list_item_inner {
   display: flex;
+  width: 450px;
   margin-bottom: 15px;
 }
 

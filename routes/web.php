@@ -11,14 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('book.index');
-});
-Route::get('/index', function () {
-    return view('book.index');
-});
-Route::get('/show', function () {
-    return view('book.show');
-});
-
-Route::get('book', ['as' => 'book.index', 'uses' => 'bookController@index']);
+Route::get('review', 'BookReviewController@index')->name('book.index');
+Route::get('review/show/{isbn}', 'BookReviewController@bookReviewList')->name('book.show');
+Route::get('review/{user_id}/mypage', 'BookReviewController@myBookReviewHistory')->name('book.mypage');
+Route::get('review/user', 'BookReviewController@userList')->name('book.user');
+Route::post('review/create', 'BookReviewController@bookReviewCreate')->name('book.create');
+Route::put('review/{id}/edit', 'BookReviewController@bookReviewEdit')->name('book.edit');
+Route::put('review/{id}/destroy', 'BookReviewController@destroy')->name('book.destroy');

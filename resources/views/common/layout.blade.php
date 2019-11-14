@@ -97,20 +97,26 @@
             $.each(data.Items, function(index, book) {　//bookは配列(data.Items)の中の各オブジェクト
                 console.log(data.Items);//data.Items 配列
                 console.log(book);
-              listsItem += "<li class='lists__item'>" + //代入演算子　listsItemにeachでループすることに<li>を１つずつ格納していく
-                            "<div class='list_item_inner'>" +
-                                "<img  class='book' src='"+ book.Item.largeImageUrl + "' alt='" + book.Item.title + "'>" +
-                                "<div class='list_item_info'>" +
-                                "<div class='book_info'>" +
-                                    "<p class='lists__item__title clearfix'>"+ book.Item.title +"</p>" +
-                                "</div>" +
-                                    "<p class='lists__item__author'>" + book.Item.author +"</p>" +
-                                "<div class='eval'>" +
-                                    "<p class='lists__item__evaluation'>平均評価:★★★★★</p>" +
-                                    "<p class='lists__item__review'>レビュー件数：10</p>"
-                                "</div>"
-                                "</div>"
-                            "</div>"
+                listsItem += "<li class='lists__item'>" +
+                                "<form method='GET' action='review/show/" + book.Item.isbn + "'>" +
+                                    "<input type='hidden' name='json_isbn' value='" + book.Item.isbn + "'>" +
+                                    "<input type='hidden' name='json_title' value='" + book.Item.title + "'>" +
+                                    "<input type='hidden' name='json_url' value='" + book.Item.largeImageUrl + "'>" +
+                                    "<input type='hidden' name='json_author' value='" + book.Item.author + "'>" +
+                                    "<div class='list_item_inner'>" +
+                                    "<input type='image' class='book' src='" + book.Item.largeImageUrl + "' alt='" + book.Item.title + "'>" +
+                                        "<div class='list_item_info'>" +
+                                            "<div class='book_info'>" +
+                                                "<p class='lists__item__title clearfix'>"+ book.Item.title +"</p>" +
+                                            "</div>" +
+                                            "<p class='lists__item__author'>" + book.Item.author +"</p>" +
+                                            "<div class='eval'>" +
+                                                "<p class='lists__item__evaluation'>平均評価:★★★★★</p>" +
+                                                "<p class='lists__item__review'>レビュー件数：10</p>" +
+                                            "</div>" +
+                                        "</div>" +
+                                    "</div>" +
+                                "</form>" +
                             "</li>"
             });
             $('.lists').prepend(listsItem);
@@ -120,7 +126,7 @@
             if(!err.responseJSON) {
                 var erro_text = 'ネットに接続されてません。'
             }else{
-            if(err.responseJSON.error_description === 'keyword must be set') { //errの配列の中のresponseJSONのオブジェクトの中のerror_descriptionとerror_descriptionがどこに入っているのかを細かく書く。
+            if(err.responseJSON.error_description === 'keyword must be set') {
                 var erro_text = 'キーワードを設定してください。'
             } else if(err.responseJSON.error_description === 'keyword length must be over 2 characters') {
                 var erro_text = '検索キーワードは2文字以上にする必要があります。'

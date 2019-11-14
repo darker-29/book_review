@@ -21,7 +21,7 @@
                 </div>
               </div>
             </li>
-
+        </ul>
       </div>
       <div class="more_book">
         <button type="submit" class="more_book_btn">もっと見る</button>

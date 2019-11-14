@@ -11,8 +11,11 @@
     <div class="mypage_down">
       <h2 class="mypage_down_header">レビュー履歴</h2>
       <div class="mypage_down_review">
-        <!-- <div class="">ここから編集と削除ボタン作成 -->
         <div class="mypage_down_review_menu"><i class="fas fa-ellipsis-h"></i></div>
+        <div class="mypage_down_review_menu-content hidden">
+          <button type="submit" class="mypage_down_review_menu-edit">編集</button>
+          <button type="submit" class="mypage_down_review_menu-delete">削除</button>
+        </div>
         <div class="mypage_down_book">
           <img  class="mypage_downt_img" src="/image/BookReviewLogo2.png" alt="本の画像">
         </div>

@@ -389,6 +389,32 @@ img.book {
   color: #ccc;
 }
 
+.mypage_down_review_menu-content {
+  position: absolute;
+  top: -25px;
+  right: 10px;
+  padding: 2px;
+  color: #fff;
+  border-radius: 5px;
+  border: 1px solid #000;
+}
+
+.mypage_down_review_menu-edit {
+  color: #fff;
+  width: 70px;
+  font-size: 15px;
+  background-color: #6f767a;
+  border-radius: 5px;
+}
+
+.mypage_down_review_menu-delete {
+  color: #fff;
+  width: 70px;
+  font-size: 15px;
+  border-radius: 5px;
+  background-color: #FF69A3;
+}
+
 .mypage_down_book {
   padding: 0 40px;
   text-align: center;
@@ -413,6 +439,7 @@ img.book {
 .mypage_down_author {
   float: right;
   margin-top: 10px;
+  margin-right: 200px;
   font-size: 25px;
   font-weight: bold;
 }

@@ -54,6 +54,8 @@
         var pageNum = 0;//最初にpageを空にする
         var word = "";//2回目に検索する'#js-search-word'の値が同じか、新しい検索かを比較するための変数
         $('.search-icon').on('click',function() {
+            $('.index-header-title-list').addClass('hidden');
+            $('.index-header-title-result').removeClass('hidden');
             var searchword = $('#js-search-word').val();
             if(word !== searchword) {　//一回目または新しい検索ワードを検索した時はwordが空か一致しないのでこの条件式は成立する
             $('.lists').empty();//中身を空にする
@@ -135,5 +137,6 @@
     });
 
 </script>
+
 </body>
 </html>

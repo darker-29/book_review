@@ -1,7 +1,8 @@
 @extends ('common.layout')
 @section ('content')
 
-<h2 class="index-header">書籍一覧or検索結果</h2>
+  <h2 class="index-header-title index-header-title-list">書籍一覧</h2>
+  <h2 class="index-header-title index-header-title-result hidden">検索結果</h2>
 <div class="wrap">
       <div class="content">
         <ul class="lists">

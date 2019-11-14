@@ -19,7 +19,9 @@ class BookReviewController extends Controller
      */
     public function bookReviewList(Request $request, $isbn)
     {
+        // dd($request);
         $json = $request->all();
+        // dd($json['json_title']);
         return view('book.show', compact('json'));
     }
 

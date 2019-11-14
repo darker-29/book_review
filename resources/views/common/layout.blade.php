@@ -107,6 +107,7 @@
                                     "<input type='hidden' name='json_title' value='" + book.Item.title + "'>" +
                                     "<input type='hidden' name='json_url' value='" + book.Item.largeImageUrl + "'>" +
                                     "<input type='hidden' name='json_author' value='" + book.Item.author + "'>" +
+                                    "<input type='hidden' name='json_itemCaption' value='" + book.Item.itemCaption + "'>" +
                                     "<div class='list_item_inner'>" +
                                     "<input type='image' class='book' src='" + book.Item.largeImageUrl + "' alt='" + book.Item.title + "'>" +
                                         "<div class='list_item_info'>" +

@@ -1,14 +1,13 @@
 @extends ('common.layout')
 @section ('content')
-
 <div class="wrap">
   <div class="container">
     <div class="side_left">
-      <img  class="side_left_img" src="/image/BookReviewLogo2.png" alt="本の画像">
-      <p class=side_left_title>あそびあそばせ</p>
-      <p class=side_left_author>涼川りん</p>
+      <img  class="side_left_img" src="{{ $json['json_url'] }}" alt="本の画像">
+      <p class=side_left_title>{{ $json['json_title']}}</p>
+      <p class=side_left_author>{{ $json['json_author']}}</p>
       <p class=side_left_summary>あらすじ</p>
-      <p class=side_left_summary_content>さまざまな遊びに興じる「遊び人研究会」で活動する3人の女子中学生たちの日常を描いたギャグ漫画。作品コンセプトは「美少女×お遊戯コメディ」。可愛らしい絵柄とそこからことごとく離れた顔芸やシュールギャグが特徴で、単行本発売後、Twitterの口コミで人気が沸騰し、緊急重版が決定するなど話題を呼んでいる。あらすじなどは特になく割とぶっ飛んでいる。控えめに言って最高!!</p>
+      <p class=side_left_summary_content>{{ $json['json_itemCaption'] ?? '-' }}</p>
     </div>
     <div class="side_right">
       <h2 class="side_right_header">レビュー一覧</h2>

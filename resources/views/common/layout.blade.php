@@ -37,6 +37,11 @@
     <div class="menu-box">
         <button type="submit" class="menu-icon"><i class="fas fa-ellipsis-h"></i></button>
     </div>
+    <div class="menu-index hidden">
+    <a class="menu-btn menu-btn-user" href=""><i class="fas fa-users"></i>　ユーザー一覧</a>
+    <a class="menu-btn menu-btn-mypage" href=""><i class="fas fa-user"></i>　 マイページ</a>
+    <a class="menu-btn menu-btn-logout" href=""><i class="fas fa-sign-out-alt"></i>　 ログアウト</a>
+    </div>
 </div>
 
 @yield('content')
@@ -148,7 +153,12 @@
         $('.mypage_down_review_menu').on('click',function() {
             $('.mypage_down_review_menu').addClass('hidden');
             $('.mypage_down_review_menu-content').removeClass('hidden');
-          });
+        });
+        // ------------------------------------------------------------------------
+        // ------------------menuクリックでmenu link表示非表示------------------------
+        $('.menu-icon').on('click',function() {
+            $('.menu-index').removeClass('hidden');
+        });
         // ------------------------------------------------------------------------
     });
 

@@ -22,10 +22,56 @@
                 </div>
               </div>
             </li>
+            <li class="lists__item">
+              <div class="list_item_inner">
+                <img  class="book" src="/image/BookReviewLogo2.png" alt="本の画像">
+                <div class="list_item_info">
+                  <div class="book_info">
+                    <p class="lists__item__title clearfix">あそびあそばせ</p>
+                  </div>
+                  <p class="lists__item__author">涼川りん</p>
+                  <div class="eval">
+                    <p class="lists__item__evaluation">平均評価:★★★★★</p>
+                    <p class="lists__item__review">レビュー件数：30</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="lists__item">
+              <div class="list_item_inner">
+                <img  class="book" src="/image/BookReviewLogo3.png" alt="本の画像">
+                <div class="list_item_info">
+                  <div class="book_info">
+                    <p class="lists__item__title clearfix">日常</p>
+                  </div>
+                    <p class="lists__item__author">あらゐけいいち</p>
+                  <div class="eval">
+                    <p class="lists__item__evaluation">平均評価:★★★★★</p>
+                    <p class="lists__item__review">レビュー件数：1000</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+           <li class="lists__item">
+              <div class="list_item_inner">
+                <img  class="book" src="/image/BookReviewLogo4.png" alt="本の画像">
+                <div class="list_item_info">
+                  <div class="book_info">
+                    <p class="lists__item__title clearfix">日常</p>
+                  </div>
+                  <p class="lists__item__author">あらゐけいいち</p>
+                  <div class="eval">
+                    <p class="lists__item__evaluation">平均評価:★★★★★</p>
+                    <p class="lists__item__review">レビュー件数：333</p>
+                  </div>
+                </div>
+              </div>
+            </li>
         </ul>
       </div>
       <div class="more_book">
         <button type="submit" class="more_book_btn">もっと見る</button>
     </div>
+    <button type="submit" class="scrolltop_btn"><i class="far fa-arrow-alt-circle-up"></i></button>
     </div>
 @endsection

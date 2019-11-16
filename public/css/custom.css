@@ -319,9 +319,9 @@ img.book {
   background-color: #fff;
 }
 
-/* ---------mypageのstyle --------- */
+/* ------ mypage&userのstyle -------- */
 
-.mypage {
+.mypage,.user {
   padding-top: 60px;
 }
 
@@ -333,13 +333,13 @@ img.book {
   box-sizing: border-box;
 }
 
-.mypage_top_back {
+.mypage_top_back,.user_top_back {
   width: 100%;
   height: 150px;
   border-radius: 20px;
 }
 
-.mypage_top_avatar {
+.mypage_top_avatar,.user_top_avatar {
   position: absolute;
   top: 20px;
   left: 20px;
@@ -351,7 +351,7 @@ img.book {
   background-color: #fff;
 }
 
-.mypage_top_avatar_name {
+.mypage_top_avatar_name,.user_top_avatar_name {
   position: absolute;
   bottom: 20px;
   right: 50px;
@@ -365,7 +365,7 @@ img.book {
   margin: 50px auto;
 }
 
-.mypage_down_header {
+.mypage_down_header,.user_down_header {
   font-size: 30px;
   padding-bottom: 10px;
   font-weight: bold;
@@ -373,7 +373,7 @@ img.book {
   border-bottom: solid 3px #ccc;
 }
 
-.mypage_down_review {
+.mypage_down_review,.user_down_review {
   position: relative;
   display: flex;
   margin-top: 30px;
@@ -415,14 +415,19 @@ img.book {
   background-color: #FF69A3;
 }
 
-.mypage_down_book {
+.mypage_down_book,.user_down_book {
   padding: 0 40px;
   text-align: center;
 }
 
-.mypage_downt_img {
+.mypage_down_img {
   width: 150px;
   height: 200px;
+}
+
+.user_down_img {
+  width: 150px;
+  height: 180px;
 }
 
 /* .mypage_down_content {
@@ -457,7 +462,48 @@ img.book {
   font-size: 20px;
 }
 
+/* ------------  userのstyle  ------------ */
 
+.user_top {
+  position: relative;
+  width: 60%;
+  height: 80%;
+  margin: 50px auto 0;
+  box-sizing: border-box;
+}
+
+.user_down {
+  width:60%;
+  margin: 20px auto;
+}
+
+.user_down_title {
+  float: left;
+  color: #a4d754;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.user_down_author {
+  float: right;
+  margin-top: 15px;
+  margin-right: 20px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.user_down_content_bottom {
+  color: #6f767a;
+}
+
+.user_down_evaluation {
+  font-size: 20px;
+  /* margin: 10px 0; */
+}
+
+.user_down_summary_content {
+  font-size: 20px;
+}
 
 
 

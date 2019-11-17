@@ -71,7 +71,7 @@
       </div>
       <div class="more_book">
         <button type="submit" class="more_book_btn">もっと見る</button>
-    </div>
+      </div>
     <button type="submit" class="scrolltop_btn"><i class="far fa-arrow-alt-circle-up"></i></button>
     </div>
 @endsection

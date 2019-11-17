@@ -42,8 +42,8 @@
         <a class="menu-btn menu-btn-user modal-show" href=""><i class="fas fa-users"></i>　ユーザー一覧</a>
         <a class="menu-btn menu-btn-mypage" href=""><i class="fas fa-user"></i>　 マイページ</a>
         <a class="menu-btn menu-btn-logout" href=""><i class="fas fa-sign-out-alt"></i>　 ログアウト</a>
-    <!-- ユーザー一覧modal -->
     </div>
+    <!-- ユーザー一覧modal -->
     <div class="modal">
         <div class="modal-content">
             <div class="modal-top">
@@ -68,7 +68,6 @@
                         <img class="modal-down-avatar" src="/image/LinuxLogo.png" alt="ユーザーアバター">
                     </a>
                     <p class="modal-down-avatar-name">華子<p>
-                </div>
                 </div>
             </div>
         </div>
@@ -200,9 +199,45 @@
           　$('.modal').fadeIn(1000);
             return false;
         }
-        $('.modal-close').click(fadeOut);
+        $('.modal-close, .modal_bg').click(fadeOut);
         function fadeOut(){
         　　$('.modal').fadeOut(1000);
+            return false;
+        }
+        // ------------------------------------------------------------------------
+        // ------------------mypage→...→編集→modalの表示非表示------------------------
+        $('.mypage_down_review_menu_edit').click(fadeIn);
+        function fadeIn(){
+          　$('.modal-edit').fadeIn(1000);
+            return false;
+        }
+        $('.modal-close-edit').click(fadeOut);
+        function fadeOut(){
+        　　$('.modal-edit').fadeOut(1000);
+            return false;
+        }
+        // ------------------------------------------------------------------------
+        // ------------------mypage→...→削除→modalの表示非表示------------------------
+        $('.mypage_down_review_menu_delete').click(fadeIn);
+        function fadeIn(){
+          　$('.modal-delete').fadeIn(1000);
+            return false;
+        }
+        $('.modal-close-delete').click(fadeOut);
+        function fadeOut(){
+        　　$('.modal-delete').fadeOut(1000);
+            return false;
+        }
+        // ------------------------------------------------------------------------
+        // ------------------show→レビューを投稿→modalの表示非表示------------------------
+        $('.new-review').click(fadeIn);
+        function fadeIn(){
+          　$('.modal-create').fadeIn(1000);
+            return false;
+        }
+        $('.modal-close-create').click(fadeOut);
+        function fadeOut(){
+        　　$('.modal-create').fadeOut(1000);
             return false;
         }
         // ------------------------------------------------------------------------

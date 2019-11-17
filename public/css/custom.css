@@ -425,7 +425,7 @@ img.book {
   border: 1px solid #000;
 }
 
-.mypage_down_review_menu-edit {
+.mypage_down_review_menu_edit {
   color: #fff;
   width: 70px;
   font-size: 15px;
@@ -433,7 +433,7 @@ img.book {
   border-radius: 5px;
 }
 
-.mypage_down_review_menu-delete {
+.mypage_down_review_menu_delete {
   color: #fff;
   width: 70px;
   font-size: 15px;
@@ -541,6 +541,7 @@ img.book {
   height: 100%;
   background-color: rgba(0, 0, 0, .7);
 }
+
 .modal-content {
   position: fixed;
   top: 50%;
@@ -618,4 +619,182 @@ img.book {
   text-align: center;
 }
 
+/*-------- 編集modal ----------*/
+.modal-edit,.modal-create {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .7);
+}
 
+.modal-close-edit,.modal-close-create {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding-bottom: 10px;
+  width: 60px;
+  height: 60px;
+  color: #999;
+  font-size: 40px;
+  border: 2px #999 solid;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+  box-sizing: border-box;
+  outline:0;
+}
+
+.modal-edit-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 60%;
+  height: 65%;
+  padding: 20px;
+  margin: -300px 0 0 -30%;
+  background-color: #fff;
+  border: 10px solid #a4d754;
+  border-radius: 20px;
+  z-index: 2;
+}
+
+.modal-edit-top-title {
+  margin-left: 20px;
+  width: 90%;
+  font-size: 30px;
+  padding-bottom: 20px;
+  font-weight: bold;
+  color: #aaa;
+}
+
+.modal-edit-top-title:first-child {
+  margin-top: 20px;
+}
+
+.modal-edit-down,.modal-create-down {
+  margin-left: 20px;
+  width: 90%;
+  height: 250px;
+  font-size: 20px;
+  padding: 20px;
+  outline: none;
+  border: 3px solid #ccc;
+  border-radius: 20px;
+}
+
+.modal-edit-book {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.modal-edit-book-btn,.modal-create-book-btn {
+  width: 300px;
+  padding: 10px 0;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #a4d754;
+  outline: none;
+  border-radius: 10px;
+}
+
+.modal-edit-book-btn:hover {
+  opacity: .7;
+}
+
+.modal-create-book-btn:hover {
+  opacity: .7;
+}
+
+/*-------- 削除modal ----------*/
+.modal-delete {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .7);
+}
+
+.modal-close-delete{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding-bottom: 10px;
+  width: 60px;
+  height: 60px;
+  color: #999;
+  font-size: 40px;
+  border: 2px #999 solid;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+  box-sizing: border-box;
+  outline:0;
+}
+
+.modal-delete-content {
+  position: fixed;
+  top: 55%;
+  left: 55%;
+  width: 45%;
+  height: 50%;
+  padding: 20px;
+  margin: -300px 0 0 -30%;
+  background-color: #fff;
+  border: 10px solid #a4d754;
+  border-radius: 20px;
+  z-index: 2;
+}
+
+.modal-delete-main {
+  position: absolute;
+  width: 60%;
+  height: 50%;
+  top: 35%;
+  left: 25%;
+}
+
+.modal-delete-title {
+  margin-left: 20px;
+  width: 90%;
+  font-size: 25px;
+  padding-bottom: 20px;
+  font-weight: bold;
+  color: #FF6666;
+}
+
+.modal-delete-select-btn {
+  display: flex;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.modal-delete-btn {
+  width: 150px;
+  height: 60px;
+  font-size: 25px;
+  padding: 10px 0;
+  color: #fff;
+  background-color: #FF6666;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+}
+
+.modal-back-btn {
+  width: 150px;
+  height: 60px;
+  margin-left: 20px;
+  font-size: 25px;
+  padding: 10px 0;
+  color: #fff;
+  background-color: #808080;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+}

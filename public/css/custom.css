@@ -39,6 +39,7 @@
   color: #fff;
   background-color: #a4d754;
   border: none;
+  outline:0;
 }
 
 .menu-icon {
@@ -48,6 +49,7 @@
   color: #fff;
   background-color: #a4d754;
   border: none;
+  outline:0;
 }
 
 .menu-index {
@@ -78,7 +80,7 @@
   bottom: 0;
   width: 100%;
   background-color: #a4d754;
-  z-index: 1;
+  /* z-index: 1; */
 }
 
 
@@ -340,6 +342,7 @@ img.book {
   border: none;
   color: #a4d754;
   background-color: #fff;
+  outline:0;
 }
 
 /* ------ mypage&userのstyle -------- */
@@ -528,6 +531,91 @@ img.book {
   font-size: 20px;
 }
 
+/* --------- ユーザー一覧モーダル ----------- */
+.modal {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .7);
+}
+.modal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 60%;
+  height: 70%;
+  padding: 20px;
+  margin: -300px 0 0 -30%;
+  background-color: #fff;
+  border: 10px solid #a4d754;
+  border-radius: 20px;
+  z-index: 2;
+}
+.modal-text {
+  display: table-cell;
+  width: 300px;
+  height: 300px;
+  text-align: center;
+  vertical-align: middle;
+}
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding-bottom: 10px;
+  width: 70px;
+  height: 70px;
+  color: #999;
+  font-size: 50px;
+  border: 2px #999 solid;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+  box-sizing: border-box;
+  outline:0;
+}
 
+
+/*-------- ユーザー一覧 ----------*/
+.modal-top-title {
+  margin-top: 30px;
+  margin-left: 30px;
+  width: 90%;
+  font-size: 40px;
+  padding-bottom: 20px;
+  font-weight: bold;
+  color: #aaa;
+  border-bottom: solid 3px #999;
+}
+
+.modal-down {
+  display: flex;
+}
+
+.modal-down-user {
+  margin-top: 10px;
+  margin-left: 50px;
+  width: 150px;
+}
+
+.modal-down-user:first-child {
+  margin-left: 20px;
+}
+
+.modal-down-avatar {
+  width: 150px;
+  height: 150px;
+  border: 2px solid #000;
+  border-radius: 50%;
+}
+
+.modal-down-avatar-name {
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+}
 
 

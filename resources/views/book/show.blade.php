@@ -3,11 +3,11 @@
 <div class="wrap">
   <div class="container">
     <div class="side_left">
-      <img  class="side_left_img" src="{{ $json['json_url'] }}" alt="本の画像">
-      <p class=side_left_title>{{ $json['json_title']}}</p>
-      <p class=side_left_author>{{ $json['json_author']}}</p>
+      <img  class="side_left_img" src="{{ $selectBook['image'] }}" alt="本の画像">
+      <p class=side_left_title>{{ $selectBook['title']}}</p>
+      <p class=side_left_author>{{ $selectBook['author']}}</p>
       <p class=side_left_summary>あらすじ</p>
-      <p class=side_left_summary_content>{{ $json['json_itemCaption'] ?? '-' }}</p>
+      <p class=side_left_summary_content>{{ $selectBook['summary'] ?? '-' }}</p>
     </div>
     <div class="side_right">
       <h2 class="side_right_header">レビュー一覧</h2>

@@ -150,11 +150,11 @@
                 console.log(book);
                 listsItem += "<li class='lists__item'>" +
                                 "<form method='GET' action='review/" + book.Item.isbn + "/show'>" +
-                                    "<input type='hidden' name='json_isbn' value='" + book.Item.isbn + "'>" +
-                                    "<input type='hidden' name='json_title' value='" + book.Item.title + "'>" +
-                                    "<input type='hidden' name='json_url' value='" + book.Item.largeImageUrl + "'>" +
-                                    "<input type='hidden' name='json_author' value='" + book.Item.author + "'>" +
-                                    "<input type='hidden' name='json_itemCaption' value='" + book.Item.itemCaption + "'>" +
+                                    "<input type='hidden' name='ISBN' value='" + book.Item.isbn + "'>" +
+                                    "<input type='hidden' name='title' value='" + book.Item.title + "'>" +
+                                    "<input type='hidden' name='image' value='" + book.Item.largeImageUrl + "'>" +
+                                    "<input type='hidden' name='author' value='" + book.Item.author + "'>" +
+                                    "<input type='hidden' name='summary' value='" + book.Item.itemCaption + "'>" +
                                     "<div class='list_item_inner'>" +
                                     "<input type='image' class='book' src='" + book.Item.largeImageUrl + "' alt='" + book.Item.title + "'>" +
                                         "<div class='list_item_info'>" +

@@ -11,6 +11,7 @@ class ReviewsTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('reviews')->truncate();
         factory(App\Review::class, 50)->create();
     }
 }

@@ -10,6 +10,6 @@ $factory->define(Review::class, function (Faker $faker) {
         'user_id' => $faker->numberBetween(1, 10),
         'evaluation' => $faker->numberBetween(1, 5),
         'content' => $faker->text(),
-        'ISBN' => $faker->ean13(),
+        'ISBN' => $faker->isbn13(),
     ];
 });

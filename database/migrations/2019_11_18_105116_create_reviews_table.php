@@ -18,7 +18,7 @@ class CreateReviewsTable extends Migration
             $table->integer('user_id');
             $table->integer('evaluation')->default(0);
             $table->text('content');
-            $table->integer('ISBN');
+            $table->bigInteger('ISBN');
             $table->timestamps();
             $table->softDeletes();
         });

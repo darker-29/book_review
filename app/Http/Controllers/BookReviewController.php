@@ -17,11 +17,10 @@ class BookReviewController extends Controller
     /**
      * レビュー一覧(本に対して)
      */
-    public function bookReviewList(Request $request, $isbn)
+    public function bookReviewList(Request $request, $id)
     {
-        // dd($request);
+
         $json = $request->all();
-        // dd($json['json_title']);
         return view('book.show', compact('json'));
     }
 

@@ -102,7 +102,7 @@
                 console.log(data.Items);//data.Items 配列
                 console.log(book);
                 listsItem += "<li class='lists__item'>" +
-                                "<form method='GET' action='review/show/" + book.Item.isbn + "'>" +
+                                "<form method='GET' action='review/" + book.Item.isbn + "/show'>" +
                                     "<input type='hidden' name='json_isbn' value='" + book.Item.isbn + "'>" +
                                     "<input type='hidden' name='json_title' value='" + book.Item.title + "'>" +
                                     "<input type='hidden' name='json_url' value='" + book.Item.largeImageUrl + "'>" +

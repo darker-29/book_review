@@ -11,6 +11,7 @@ class LikesTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('likes')->truncate();
         factory(App\Like::class, 50)->create();
     }
 }

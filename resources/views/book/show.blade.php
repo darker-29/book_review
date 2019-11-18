@@ -24,17 +24,17 @@
         </div>
       </div>
       <div class="more_book">
-            <button type="submit" class="more_book_btn new-review">レビューを投稿する</button>
+            <button type="submit" class="more_book_btn new-review js-modal-open" data-target="modal04">レビューを投稿する</button>
       </div>
     </div>
     <button type="submit" class="scrolltop_btn"><i class="far fa-arrow-alt-circle-up"></i></button>
     <!-- 編集modal表示非表示 -->
-    <div class="modal-create">
+    <div id="modal04" class="modal js-modal modal-create">
         <div class="modal-edit-content">
             <div class="modal-top">
                 <p class="modal-edit-top-title">評価 : ★★★★★</p>
                 <p class="modal-edit-top-title">内容 :</p>
-                <button type="button" class="modal-close-create">×</button>
+                <button type="button" class="modal-close-create js-modal-close">×</button>
             </div>
             <div class="modal-down">
             <textarea class="modal-create-down">ここにレビューを記入してください。</textarea>

@@ -39,16 +39,16 @@
     </div>
     <!-- メニュー一覧表示 -->
     <div class="menu-index hidden">
-        <a class="menu-btn menu-btn-user modal-show" href=""><i class="fas fa-users"></i>　ユーザー一覧</a>
+        <a class="menu-btn menu-btn-user js-modal-open modal-show" href="" data-target="modal01"><i class="fas fa-users"></i>　ユーザー一覧</a>
         <a class="menu-btn menu-btn-mypage" href=""><i class="fas fa-user"></i>　 マイページ</a>
         <a class="menu-btn menu-btn-logout" href=""><i class="fas fa-sign-out-alt"></i>　 ログアウト</a>
     </div>
     <!-- ユーザー一覧modal -->
-    <div class="modal">
+    <div id="modal01" class="modal js-modal">
         <div class="modal-content">
             <div class="modal-top">
                 <h2 class="modal-top-title">ユーザー一覧</h2>
-                <button type="button" class="modal-close">×</button>
+                <button type="button" class="modal-close js-modal-close">×</button>
             </div>
             <div class="modal-down">
                 <div class="modal-down-user">
@@ -193,53 +193,19 @@
             $('.menu-index').addClass('hidden');
         });
         // ------------------------------------------------------------------------
-        // ------------------menu→ユーザー一覧→modalの表示非表示------------------------
-        $('.modal-show').click(fadeIn);
-        function fadeIn(){
-          　$('.modal').fadeIn(1000);
+        // ---------------------------複数modalの書き方--------------------------------
+        $('.js-modal-open').each(function(){
+            $(this).on('click',function(){
+                var target = $(this).data('target');
+                var modal = document.getElementById(target);
+                $(modal).fadeIn();
+                return false;
+            });
+        });
+        $('.js-modal-close').on('click',function(){
+            $('.js-modal').fadeOut();
             return false;
-        }
-        $('.modal-close, .modal_bg').click(fadeOut);
-        function fadeOut(){
-        　　$('.modal').fadeOut(1000);
-            return false;
-        }
-        // ------------------------------------------------------------------------
-        // ------------------mypage→...→編集→modalの表示非表示------------------------
-        $('.mypage_down_review_menu_edit').click(fadeIn);
-        function fadeIn(){
-          　$('.modal-edit').fadeIn(1000);
-            return false;
-        }
-        $('.modal-close-edit').click(fadeOut);
-        function fadeOut(){
-        　　$('.modal-edit').fadeOut(1000);
-            return false;
-        }
-        // ------------------------------------------------------------------------
-        // ------------------mypage→...→削除→modalの表示非表示------------------------
-        $('.mypage_down_review_menu_delete').click(fadeIn);
-        function fadeIn(){
-          　$('.modal-delete').fadeIn(1000);
-            return false;
-        }
-        $('.modal-close-delete').click(fadeOut);
-        function fadeOut(){
-        　　$('.modal-delete').fadeOut(1000);
-            return false;
-        }
-        // ------------------------------------------------------------------------
-        // ------------------show→レビューを投稿→modalの表示非表示------------------------
-        $('.new-review').click(fadeIn);
-        function fadeIn(){
-          　$('.modal-create').fadeIn(1000);
-            return false;
-        }
-        $('.modal-close-create').click(fadeOut);
-        function fadeOut(){
-        　　$('.modal-create').fadeOut(1000);
-            return false;
-        }
+        }); 
         // ------------------------------------------------------------------------
     });
 

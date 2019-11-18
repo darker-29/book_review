@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('review', 'BookReviewController@index')->name('book.index');
 Route::get('review/{isbn}/show', 'BookReviewController@bookReviewList')->name('book.show');
 Route::get('review/{user_id}/mypage', 'BookReviewController@myBookReviewHistory')->name('book.mypage');

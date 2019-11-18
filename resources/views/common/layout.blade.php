@@ -37,6 +37,41 @@
     <div class="menu-box">
         <button type="submit" class="menu-icon"><i class="fas fa-ellipsis-h"></i></button>
     </div>
+    <!-- メニュー一覧表示 -->
+    <div class="menu-index hidden">
+        <a class="menu-btn menu-btn-user js-modal-open modal-show" href="" data-target="modal01"><i class="fas fa-users"></i>　ユーザー一覧</a>
+        <a class="menu-btn menu-btn-mypage" href=""><i class="fas fa-user"></i>　 マイページ</a>
+        <a class="menu-btn menu-btn-logout" href=""><i class="fas fa-sign-out-alt"></i>　 ログアウト</a>
+    </div>
+    <!-- ユーザー一覧modal -->
+    <div id="modal01" class="modal js-modal">
+        <div class="modal-content">
+            <div class="modal-top">
+                <h2 class="modal-top-title">ユーザー一覧</h2>
+                <button type="button" class="modal-close js-modal-close">×</button>
+            </div>
+            <div class="modal-down">
+                <div class="modal-down-user">
+                    <a class="" href="">
+                        <img class="modal-down-avatar" src="/image/GitHubLogo.png" alt="ユーザーアバター">
+                    </a>
+                    <p class="modal-down-avatar-name">オリヴィア<p>
+                </div>
+                <div class="modal-down-user">
+                    <a class="" href="">
+                        <img class="modal-down-avatar" src="/image/DockerLogo.png" alt="ユーザーアバター">
+                    </a>
+                    <p class="modal-down-avatar-name">かすみ<p>
+                </div>
+                <div class="modal-down-user">
+                    <a class="" href="">
+                        <img class="modal-down-avatar" src="/image/LinuxLogo.png" alt="ユーザーアバター">
+                    </a>
+                    <p class="modal-down-avatar-name">華子<p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 @yield('content')
@@ -148,7 +183,29 @@
         $('.mypage_down_review_menu').on('click',function() {
             $('.mypage_down_review_menu').addClass('hidden');
             $('.mypage_down_review_menu-content').removeClass('hidden');
-          });
+        });
+        // ------------------------------------------------------------------------
+        // ------------------menuクリックでmenu link表示非表示------------------------
+        $('.menu-icon').on('click',function() {
+            $('.menu-index').removeClass('hidden');
+        });
+        $('.menu-btn').on('click',function() {
+            $('.menu-index').addClass('hidden');
+        });
+        // ------------------------------------------------------------------------
+        // ---------------------------複数modalの書き方--------------------------------
+        $('.js-modal-open').each(function(){
+            $(this).on('click',function(){
+                var target = $(this).data('target');
+                var modal = document.getElementById(target);
+                $(modal).fadeIn();
+                return false;
+            });
+        });
+        $('.js-modal-close').on('click',function(){
+            $('.js-modal').fadeOut();
+            return false;
+        }); 
         // ------------------------------------------------------------------------
     });
 

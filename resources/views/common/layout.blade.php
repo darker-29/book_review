@@ -40,7 +40,7 @@
     <!-- メニュー一覧表示 -->
     <div class="menu-index hidden">
         <a class="menu-btn menu-btn-user js-modal-open modal-show" href="" data-target="modal01"><i class="fas fa-users"></i>　ユーザー一覧</a>
-        <a class="menu-btn menu-btn-mypage" href=""><i class="fas fa-user"></i>　 マイページ</a>
+        <a class="menu-btn menu-btn-mypage" href="{{ route('book.mypage') }}"><i class="fas fa-user"></i>　 マイページ</a>
         <a class="menu-btn menu-btn-logout" href=""><i class="fas fa-sign-out-alt"></i>　 ログアウト</a>
     </div>
     <!-- ユーザー一覧modal -->
@@ -100,7 +100,7 @@
 <script>$(function() {
         var pageNum = 0;//最初にpageを空にする
         var word = "";//2回目に検索する'#js-search-word'の値が同じか、新しい検索かを比較するための変数
-        $('.search-icon').on('click',function() {
+        $('.search-icon, .more_book_btn').on('click',function() {
             // ------------------indexのtitle表示非表示-------------------------
             $('.index-header-title-list').addClass('hidden');
             $('.index-header-title-result').removeClass('hidden');
@@ -171,7 +171,7 @@
                                 "</form>" +
                             "</li>"
             });
-            $('.lists').prepend(listsItem);
+            $('.lists').append(listsItem);
         }
         //errの処理
         function primaryErr(err) {

@@ -29,7 +29,7 @@ class BookReviewController extends Controller
      */
     public function myBookReviewHistory()
     {
-        //
+        return view('book.mypage');
     }
 
     /**

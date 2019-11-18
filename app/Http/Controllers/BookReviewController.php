@@ -3,9 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Book;
 
 class BookReviewController extends Controller
 {
+    protected $books;
+
+    public function __construct(Book $book)
+    {
+        $this->books = $book;
+    }
     /**
      * 検索一覧ページ
      */
@@ -21,7 +28,9 @@ class BookReviewController extends Controller
     {
 
         $json = $request->all();
-        return view('book.show', compact('json'));
+        $this->books->saveBook($json);
+        $selectBook = $this->books->selectBook($json['ISBN']);
+        return view('book.show', compact('selectBook'));
     }
 
     /**

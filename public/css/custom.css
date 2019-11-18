@@ -323,7 +323,17 @@ img.book {
   border-radius: 50%;
   color: #fff;
   border: none;
+  outline: none;
   background-color: #a4d754;
+}
+
+.good_btn:hover {
+opacity: .7;
+}
+
+.good_btn:active {
+position: relative;
+top: 2px;
 }
 
 .good_btn_count {

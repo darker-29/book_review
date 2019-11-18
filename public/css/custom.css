@@ -603,7 +603,7 @@ img.book {
   width: 150px;
 }
 
-.modal-down-user:first-child {
+.modal-down:nth-child(3n+1) {
   margin-left: 20px;
 }
 

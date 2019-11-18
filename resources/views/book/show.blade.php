@@ -31,17 +31,31 @@
     <!-- 編集modal表示非表示 -->
     <div id="modal04" class="modal js-modal modal-create">
         <div class="modal-edit-content">
-            <div class="modal-top">
-                <p class="modal-edit-top-title">評価 : ★★★★★</p>
-                <p class="modal-edit-top-title">内容 :</p>
-                <button type="button" class="modal-close-create js-modal-close">×</button>
+          <form>
+            <div class="modal-top clearfix">
+              <div class="evaluation">
+                <input id="star1" type="radio" name="star" value="5" />
+                <label for="star1">★</label>
+                <input id="star2" type="radio" name="star" value="4" />
+                <label for="star2">★</label>
+                <input id="star3" type="radio" name="star" value="3" />
+                <label for="star3">★</label>
+                <input id="star4" type="radio" name="star" value="2" />
+                <label for="star4">★</label>
+                <input id="star5" type="radio" name="star" value="1" />
+                <label for="star5">★</label>
+                <p class="modal-edit-top-title">評価 : </p>
+              </div>
+              <button type="button" class="modal-close-create js-modal-close">×</button>
             </div>
-            <div class="modal-down">
+            <div class="modal-down-create">
+                <p class="modal-down-create-title">内容 :</p>
             <textarea class="modal-create-down">ここにレビューを記入してください。</textarea>
             </div>
             <div class="modal-edit-book">
               <button type="submit" class="modal-create-book-btn">投稿する</button>
             </div>
+          </form>
         </div>
     </div>
   </div>

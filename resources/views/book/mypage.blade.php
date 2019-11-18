@@ -35,17 +35,29 @@
     <!-- 編集modal表示非表示 -->
     <div id="modal02" class="modal js-modal modal-edit">
         <div class="modal-edit-content">
-            <div class="modal-top">
-                <p class="modal-edit-top-title">評価 : ★★★★★</p>
-                <p class="modal-edit-top-title">内容 :</p>
-                <button type="button" class="modal-close-edit js-modal-close">×</button>
-            </div>
-            <div class="modal-down">
-              <textarea class="modal-edit-down">まず登場人物と声優さんがすごくいいの！魅力的で個性（闇）があったり、そのキャラクターの演技がまたすごい！特に華子役の人は大変だったと思います！けど、1つ声優さん関係で文句が言うのであれば時々何言ってるかわからないときがあるのでそこが少しだけ残念でした。ただ、中盤以降少し中だるみする話数もありますが声優さんの演技と勢いでつい笑ってしまいます！サブキャラも個性的で魅力的なキャラクターが多くて、最後まで飽きずに見られました。ギャグアニメなので好みが分かれる作品だと思いますが、リアクション芸とか好きな人はよりハマるんじゃないかなと思います。 ps.華子マジファッションセンスwww</textarea>
-            </div>
-            <div class="modal-edit-book">
-              <button type="submit" class="modal-edit-book-btn">更新する</button>
-            </div>
+          <div class="modal-top clearfix">
+                <div class="evaluation">
+                  <input id="star1" type="radio" name="star" value="5" />
+                  <label for="star1">★</label>
+                  <input id="star2" type="radio" name="star" value="4" />
+                  <label for="star2">★</label>
+                  <input id="star3" type="radio" name="star" value="3" />
+                  <label for="star3">★</label>
+                  <input id="star4" type="radio" name="star" value="2" />
+                  <label for="star4">★</label>
+                  <input id="star5" type="radio" name="star" value="1" />
+                  <label for="star5">★</label>
+                  <p class="modal-edit-top-title">評価 : </p>
+                </div>
+                <button type="button" class="modal-close-create js-modal-close">×</button>
+          </div>
+          <div class="modal-down-create">
+              <p class="modal-down-create-title">内容 :</p>
+          <textarea class="modal-edit-down">まず登場人物と声優さんがすごくいいの！魅力的で個性（闇）があったり、そのキャラクターの演技がまたすごい！特に華子役の人は大変だったと思います！けど、1つ声優さん関係で文句が言うのであれば時々何言ってるかわからないときがあるのでそこが少しだけ残念でした。ただ、中盤以降少し中だるみする話数もありますが声優さんの演技と勢いでつい笑ってしまいます！サブキャラも個性的で魅力的なキャラクターが多くて、最後まで飽きずに見られました。ギャグアニメなので好みが分かれる作品だと思いますが、リアクション芸とか好きな人はよりハマるんじゃないかなと思います。 ps.華子マジファッションセンスwww</textarea>
+          </div>
+          <div class="modal-edit-book">
+            <button type="submit" class="modal-edit-book-btn">更新する</button>
+          </div>
         </div>
     </div>
     <!-- 削除modal表示非表示 -->

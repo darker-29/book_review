@@ -69,6 +69,18 @@
                     </a>
                     <p class="modal-down-avatar-name">華子<p>
                 </div>
+                <div class="modal-down-user">
+                    <a class="" href="">
+                        <img class="modal-down-avatar" src="/image/konanLogo.png" alt="ユーザーアバター">
+                    </a>
+                    <p class="modal-down-avatar-name">先生<p>
+                </div>
+                <div class="modal-down-user">
+                    <a class="" href="">
+                        <img class="modal-down-avatar" src="/image/MaedaLogo.png" alt="ユーザーアバター">
+                    </a>
+                    <p class="modal-down-avatar-name">前田<p>
+                </div>
             </div>
         </div>
     </div>
@@ -206,6 +218,14 @@
             $('.js-modal').fadeOut();
             return false;
         }); 
+        // ------------------------------------------------------------------------
+        // -----------------------トップスクロールボタン処理---------------------------
+        $('.scrolltop_btn').click(function () {
+            $('body,  html').animate({
+                scrollTop: 0
+            }, 500);
+            return false;
+        });
         // ------------------------------------------------------------------------
     });
 

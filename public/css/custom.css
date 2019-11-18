@@ -594,6 +594,7 @@ img.book {
 
 .modal-down {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .modal-down-user {
@@ -602,7 +603,7 @@ img.book {
   width: 150px;
 }
 
-.modal-down-user:first-child {
+.modal-down:nth-child(3n+1) {
   margin-left: 20px;
 }
 
@@ -665,12 +666,18 @@ img.book {
   margin-left: 20px;
   width: 90%;
   font-size: 30px;
-  padding-bottom: 20px;
+  /* padding-bottom: 20px; */
   font-weight: bold;
   color: #aaa;
 }
 
-.modal-edit-top-title:first-child {
+.modal-down-create-title {
+  margin-left: 20px;
+  margin-bottom: 20px;
+  width: 90%;
+  font-size: 30px;
+  font-weight: bold;
+  color: #aaa;
   margin-top: 20px;
 }
 
@@ -797,4 +804,32 @@ img.book {
   border: none;
   outline: none;
   border-radius: 10px;
+}
+
+/*-------- 評価の星のスタイル ----------*/
+
+.evaluation{
+  display: flex;
+  float: left;
+  padding-top :30px;
+  flex-direction: row-reverse;
+  /* justify-content: center; */
+}
+
+.evaluation input[type='radio']{
+  display: none;
+}
+
+.evaluation label{
+  position: relative;
+  padding: 0 10px;
+  color: gray;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+.evaluation label:hover,
+.evaluation label:hover ~ label,
+.evaluation input[type='radio']:checked ~ label{
+  color: #ffcc00;
 }

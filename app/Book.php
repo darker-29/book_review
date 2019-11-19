@@ -6,16 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model
 {
-    protected $primaryKey = 'ISBN';
-    public $incrementing = false;
-    public $timestamps = false;
-
     protected $fillable = [
         'ISBN',
         'title',
         'image',
         'author',
         'summary',
+    ];
+
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'deleted_at',
     ];
 
     public function saveBook($json)

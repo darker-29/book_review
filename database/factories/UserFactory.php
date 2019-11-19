@@ -20,7 +20,7 @@ $factory->define(User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
-        'github_user_id' => $faker->text(),
+        'password' => $faker->text(),
         'avatar' => $faker->text(),
         'remember_token' => Str::random(10),
     ];

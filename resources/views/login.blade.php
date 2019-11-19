@@ -9,7 +9,7 @@
     <title>{{ config('app.name') }}</title>
     <!-- Styles CSSの読み込み-->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <!-- <link href="{{ asset('css/custom.css') }}" rel="stylesheet"> -->
     <link href="{{ asset('css/github_login.css') }}" rel="stylesheet">
     <!-- font-awesome使用ようリンク -->
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
@@ -29,8 +29,8 @@
       キャッチフレーズキャッチフレーズキャッチフレーズ
     </div>
     <div class="login-box">
-      <button class="login-btn" type="button" onclick="location.href='slack/login'">
-        <p><i class="fab fa-github"></i>Login with GitHub</p>
+      <button class="login-btn" type="button">
+        <a href="{{ url('login/github') }}"><p><i class="fab fa-github"></i>Login with GitHub</p></a>
       </button>
     </div>
     <div class="attention-box">

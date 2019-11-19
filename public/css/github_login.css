@@ -48,6 +48,11 @@ body {
   font-size: 20px;
   text-align: center;
   background-color: #4c4c4c;
+  text-decoration: none;
+}
+
+.login-box a {
+  text-decoration: none;
 }
 
 .attention-box {
@@ -68,12 +73,9 @@ body {
   font-weight: bold;
 }
 
-
 .login-btn:hover {
   opacity: .7;
 }
-
-
 
 .login-btn:active {
   position: relative;

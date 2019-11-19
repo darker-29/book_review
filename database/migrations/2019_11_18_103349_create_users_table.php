@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('name', 255);
             $table->string('email', 255)->unique();
-            $table->string('github_user_id', 255)->unique();
+            $table->string('password', 255)->unique();
             $table->string('avatar', 255)->nullable();
             $table->string('remember_token', 255)->nullable();
             $table->timestamps();

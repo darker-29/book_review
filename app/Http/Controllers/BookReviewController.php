@@ -4,14 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Book;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\ReviewsRequest;
+use App\Review;
 
 class BookReviewController extends Controller
 {
     protected $books;
+    protected $reviews;
 
-    public function __construct(Book $book)
+    public function __construct(Book $book, Review $reviews)
     {
         $this->books = $book;
+        $this->reviews = $reviews;
     }
     /**
      * 検索一覧ページ
@@ -26,11 +31,9 @@ class BookReviewController extends Controller
      */
     public function bookReviewList(Request $request, $id)
     {
-
         $json = $request->all();
-        $this->books->saveBook($json);
-        $selectBook = $this->books->selectBook($json['ISBN']);
-        return view('book.show', compact('selectBook'));
+        $selectBook = $this->books->saveBook($json);
+        return view('book.show', compact('json', 'selectBook'));
     }
 
     /**
@@ -52,9 +55,12 @@ class BookReviewController extends Controller
     /**
      * レビュー作成
      */
-    public function  bookReviewCreate(Request $request)
+    public function  bookReviewCreate(ReviewsRequest $request)
     {
-        //
+        $BookContent = $request->all();
+        $BookContent['user_id'] = Auth::id();
+        $this->reviews->saveContent($BookContent);
+        return redirect()->route('book.show', $BookContent['ISBN']);
     }
 
     /**

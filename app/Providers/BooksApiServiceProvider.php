@@ -14,7 +14,7 @@ class BooksApiServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('book', function($app) {
+        $this->app->bind('booksApi', function($app) {
             return new BooksApiService();
         });
     }

@@ -30,6 +30,15 @@ class BookController extends Controller
     }
 
     /**
+     * searchボタン押下時アクション
+     */
+    public function searchBooks()
+    {
+        $books = $this->booksApi->search();
+        dd($books);
+    }
+
+    /**
      * レビュー一覧(本に対して)
      */
     public function bookReviewList(Request $request, $id)

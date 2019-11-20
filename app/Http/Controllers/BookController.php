@@ -32,10 +32,13 @@ class BookController extends Controller
     /**
      * searchボタン押下時アクション
      */
-    public function searchBooks()
+    public function searchBooks(Request $request)
     {
-        $books = $this->booksApi->search();
-        dd($books);
+        dd($request);
+        $pageNumber = 1;
+        $keyword = '本';
+        $books = $this->booksApi->search($pageNumber, $keyword);
+        return view('book.index', compact('books'));
     }
 
     /**

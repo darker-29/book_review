@@ -22,7 +22,7 @@ Route::get('/login/github', 'Auth\LoginController@redirectToProvider');
 Route::get('/login/github/callback', 'Auth\LoginController@handleProviderCallback');
 
 Route::get('review', 'BookController@index')->name('book.index');
-Route::get('review/searchBooks', 'BookController@searchBooks')->name('book.search');
+Route::post('review/searchBooks', 'BookController@searchBooks')->name('book.search');
 Route::get('review/{isbn}/show', 'BookController@bookReviewList')->name('book.show');
 Route::get('review/mypage', 'BookController@myBookReviewHistory')->name('book.mypage');
 Route::get('review/user', 'BookController@userList')->name('book.user');

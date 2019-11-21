@@ -34,10 +34,10 @@ class BookController extends Controller
      */
     public function searchBooks(Request $request)
     {
-        dd($request);
         $pageNumber = 1;
         $keyword = '本';
         $books = $this->booksApi->search($pageNumber, $keyword);
+        dd($books);
         return view('book.index', compact('books'));
     }
 

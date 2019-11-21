@@ -17,8 +17,25 @@
                   </div>
                     <p class="lists__item__author">{{ $book['Item']['author'] }}</p>
                   <div class="eval">
-                    <p class="lists__item__evaluation">平均評価:★★★★★</p>
-                    <p class="lists__item__review">レビュー件数：10</p>
+                    @if (!empty($book['Item']['numberOfReviews']))
+                      <p class="lists__item__evaluation">平均評価：
+                        @if ($book['Item']['evaluationAverage'] >= 4.5)
+                          {{ '★★★★★' }}
+                        @elseif ($book['Item']['evaluationAverage'] >= 3.5)
+                          {{ '★★★★' }}
+                        @elseif ($book['Item']['evaluationAverage'] >= 2.5)
+                          {{ '★★★' }}
+                        @elseif ($book['Item']['evaluationAverage'] >= 1.5)
+                          {{ '★★' }}
+                        @else
+                          {{ '★' }}
+                        @endif
+                      </p>
+                      <p class="lists__item__review">レビュー件数：{{ $book['Item']['numberOfReviews'] }}</p>
+                    @else
+                      <p class="lists__item__evaluation">平均評価：  -  </p>
+                      <p class="lists__item__review">レビュー件数：0</p>
+                    @endif
                   </div>
                 </div>
               </div>

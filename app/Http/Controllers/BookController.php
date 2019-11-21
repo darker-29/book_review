@@ -38,7 +38,8 @@ class BookController extends Controller
     {
         $pageNumber = 1;
         $searchWord = $request['searchWord'];
-        $books = $this->booksApi->search($pageNumber, $searchWord);
+        $booksFiltered = $this->booksApi->search($pageNumber, $searchWord);
+        $books = $this->review->fetchEvaluations($booksFiltered);
         return view('book.index', compact('books'));
     }
 

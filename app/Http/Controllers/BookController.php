@@ -46,7 +46,7 @@ class BookController extends Controller
     /**
      * レビュー一覧(本に対して)
      */
-    public function bookReviewList(Request $request, $id)
+    public function reviewList(Request $request, $id)
     {
         $json = $request->all();
         $selectBook = $this->book->saveBook($json);
@@ -56,7 +56,7 @@ class BookController extends Controller
     /**
      * mypage レビュー履歴
      */
-    public function myBookReviewHistory()
+    public function mypage()
     {
         return view('book.mypage');
     }
@@ -72,7 +72,7 @@ class BookController extends Controller
     /**
      * レビュー作成
      */
-    public function  bookReviewCreate(ReviewsRequest $request)
+    public function  reviewCreate(ReviewsRequest $request)
     {
         $BookContent = $request->all();
         $BookContent['user_id'] = Auth::id();
@@ -83,7 +83,7 @@ class BookController extends Controller
     /**
      * レビューの編集
      */
-    public function bookReviewEdit($id)
+    public function reviewEdit($id)
     {
         //
     }

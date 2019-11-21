@@ -27,8 +27,8 @@ class BookController extends Controller
     public function index()
     {
         $pageNumber = 1;
-        $books = $this->booksApi->indexShow($pageNumber);
-        return view('book.index', compact('books'));
+        $bookInfos = $this->booksApi->indexShow($pageNumber);
+        return view('book.index', compact('bookInfos'));
     }
 
     /**
@@ -38,9 +38,9 @@ class BookController extends Controller
     {
         $pageNumber = 1;
         $searchWord = $request['searchWord'];
-        $booksFiltered = $this->booksApi->search($pageNumber, $searchWord);
-        $books = $this->review->fetchEvaluations($booksFiltered);
-        return view('book.index', compact('books'));
+        $booksSearched = $this->booksApi->searchBooks($pageNumber, $searchWord);
+        $bookInfos = $this->review->fetchEvaluations($booksSearched);
+        return view('book.index', compact('bookInfos'));
     }
 
     /**

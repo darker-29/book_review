@@ -7,31 +7,31 @@
       <div class="content">
         <ul class="lists">
           <!-- テンプレート挿入部分 -->
-          @foreach($books['Items'] as $book)
+          @foreach($bookInfos['Items'] as $bookInfo)
             <li class="lists__item">
               <div class="list_item_inner">
-                <img  class="book" src="{{ $book['Item']['largeImageUrl'] }}" alt="本の画像">
+                <img  class="book" src="{{ $bookInfo['Item']['largeImageUrl'] }}" alt="本の画像">
                 <div class="list_item_info">
                   <div class="book_info">
-                    <p class="lists__item__title clearfix">{{ $book['Item']['title'] }}</p>
+                    <p class="lists__item__title clearfix">{{ $bookInfo['Item']['title'] }}</p>
                   </div>
-                    <p class="lists__item__author">{{ $book['Item']['author'] }}</p>
+                    <p class="lists__item__author">{{ $bookInfo['Item']['author'] }}</p>
                   <div class="eval">
-                    @if (!empty($book['Item']['numberOfReviews']))
+                    @if (!empty($bookInfo['Item']['numberOfReviews']))
                       <p class="lists__item__evaluation">平均評価：
-                        @if ($book['Item']['evaluationAverage'] >= 4.5)
+                        @if ($bookInfo['Item']['evaluationAverage'] >= 4.5)
                           {{ '★★★★★' }}
-                        @elseif ($book['Item']['evaluationAverage'] >= 3.5)
+                        @elseif ($bookInfo['Item']['evaluationAverage'] >= 3.5)
                           {{ '★★★★' }}
-                        @elseif ($book['Item']['evaluationAverage'] >= 2.5)
+                        @elseif ($bookInfo['Item']['evaluationAverage'] >= 2.5)
                           {{ '★★★' }}
-                        @elseif ($book['Item']['evaluationAverage'] >= 1.5)
+                        @elseif ($bookInfo['Item']['evaluationAverage'] >= 1.5)
                           {{ '★★' }}
                         @else
                           {{ '★' }}
                         @endif
                       </p>
-                      <p class="lists__item__review">レビュー件数：{{ $book['Item']['numberOfReviews'] }}</p>
+                      <p class="lists__item__review">レビュー件数：{{ $bookInfo['Item']['numberOfReviews'] }}</p>
                     @else
                       <p class="lists__item__evaluation">平均評価：  -  </p>
                       <p class="lists__item__review">レビュー件数：0</p>

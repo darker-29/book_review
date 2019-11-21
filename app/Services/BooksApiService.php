@@ -23,7 +23,7 @@ class BooksApiService
     /**
      * @return array
      */
-    public function search($pageNumber, $word)
+    public function searchBooks($pageNumber, $word)
     {
         $format = 'format=json';
         $hits = 'hits=4';

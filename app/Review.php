@@ -15,8 +15,6 @@ class Review extends Model
     ];
 
     protected $dates = [
-        'created_at',
-        'updated_at',
         'deleted_at',
     ];
 
@@ -33,5 +31,20 @@ class Review extends Model
     public function saveContent($BookContent)
     {
         return $this->create($BookContent);
+    }
+
+    public function fetchEvaluations($books)
+    {
+        foreach ($books['Items'] as &$book) {
+            $reviews = $this->where('ISBN', $book['Item']['isbn'])->get();
+            if($reviews->count()) {
+                $numberOfReviews = $reviews->count();
+                $evaluationAverage = $reviews->sum('evaluation')/$numberOfReviews;
+                $book['Item']['numberOfReviews'] = $numberOfReviews;
+                $book['Item']['evaluationAverage'] = $evaluationAverage;
+            }
+        }
+        unset($book);
+        return $books;
     }
 }

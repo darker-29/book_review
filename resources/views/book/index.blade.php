@@ -6,67 +6,41 @@
 <div class="wrap">
       <div class="content">
         <ul class="lists">
-           <!-- テンプレート挿入部分 -->
-           <li class="lists__item">
-              <div class="list_item_inner">
-                <img  class="book" src="/image/BookReviewLogo.png" alt="本の画像">
-                <div class="list_item_info">
-                  <div class="book_info">
-                    <p class="lists__item__title clearfix">あそびあそばせ</p>
-                  </div>
-                    <p class="lists__item__author">涼川りん</p>
-                  <div class="eval">
-                    <p class="lists__item__evaluation">平均評価:★★★★★</p>
-                    <p class="lists__item__review">レビュー件数：10</p>
-                  </div>
-                </div>
-              </div>
-            </li>
+          <!-- テンプレート挿入部分 -->
+          @foreach($bookInfos['Items'] as $bookInfo)
             <li class="lists__item">
               <div class="list_item_inner">
-                <img  class="book" src="/image/BookReviewLogo2.png" alt="本の画像">
+                <img  class="book" src="{{ $bookInfo['Item']['largeImageUrl'] }}" alt="本の画像">
                 <div class="list_item_info">
                   <div class="book_info">
-                    <p class="lists__item__title clearfix">あそびあそばせ</p>
+                    <p class="lists__item__title clearfix">{{ $bookInfo['Item']['title'] }}</p>
                   </div>
-                  <p class="lists__item__author">涼川りん</p>
+                    <p class="lists__item__author">{{ $bookInfo['Item']['author'] }}</p>
                   <div class="eval">
-                    <p class="lists__item__evaluation">平均評価:★★★★★</p>
-                    <p class="lists__item__review">レビュー件数：30</p>
+                    @if (!empty($bookInfo['Item']['numberOfReviews']))
+                      <p class="lists__item__evaluation">平均評価：
+                        @if ($bookInfo['Item']['evaluationAverage'] >= 4.5)
+                          {{ '★★★★★' }}
+                        @elseif ($bookInfo['Item']['evaluationAverage'] >= 3.5)
+                          {{ '★★★★' }}
+                        @elseif ($bookInfo['Item']['evaluationAverage'] >= 2.5)
+                          {{ '★★★' }}
+                        @elseif ($bookInfo['Item']['evaluationAverage'] >= 1.5)
+                          {{ '★★' }}
+                        @else
+                          {{ '★' }}
+                        @endif
+                      </p>
+                      <p class="lists__item__review">レビュー件数：{{ $bookInfo['Item']['numberOfReviews'] }}</p>
+                    @else
+                      <p class="lists__item__evaluation">平均評価：  -  </p>
+                      <p class="lists__item__review">レビュー件数：0</p>
+                    @endif
                   </div>
                 </div>
               </div>
             </li>
-            <li class="lists__item">
-              <div class="list_item_inner">
-                <img  class="book" src="/image/BookReviewLogo3.png" alt="本の画像">
-                <div class="list_item_info">
-                  <div class="book_info">
-                    <p class="lists__item__title clearfix">日常</p>
-                  </div>
-                    <p class="lists__item__author">あらゐけいいち</p>
-                  <div class="eval">
-                    <p class="lists__item__evaluation">平均評価:★★★★★</p>
-                    <p class="lists__item__review">レビュー件数：1000</p>
-                  </div>
-                </div>
-              </div>
-            </li>
-           <li class="lists__item">
-              <div class="list_item_inner">
-                <img  class="book" src="/image/BookReviewLogo4.png" alt="本の画像">
-                <div class="list_item_info">
-                  <div class="book_info">
-                    <p class="lists__item__title clearfix">日常</p>
-                  </div>
-                  <p class="lists__item__author">あらゐけいいち</p>
-                  <div class="eval">
-                    <p class="lists__item__evaluation">平均評価:★★★★★</p>
-                    <p class="lists__item__review">レビュー件数：333</p>
-                  </div>
-                </div>
-              </div>
-            </li>
+          @endforeach
         </ul>
       </div>
       <div class="more_book">

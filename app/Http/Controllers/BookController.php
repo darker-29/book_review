@@ -26,7 +26,9 @@ class BookController extends Controller
      */
     public function index()
     {
-        return view('book.index');
+        $pageNumber = 1;
+        $books = $this->booksApi->indexShow($pageNumber);
+        return view('book.index', compact('books'));
     }
 
     /**
@@ -35,7 +37,7 @@ class BookController extends Controller
     public function searchBooks(Request $request)
     {
         $pageNumber = 1;
-        $searchWord = 'abc';
+        $searchWord = $request['searchWord'];
         $books = $this->booksApi->search($pageNumber, $searchWord);
         return view('book.index', compact('books'));
     }

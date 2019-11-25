@@ -1,2 +1,10 @@
-FallbackResource /public/
+
+<Files ~ "^\.ht">
+AuthUserfile /login/.htpasswd
+AuthGroupfile /dev/null
+AuthName "Please enter your ID and password"
+AuthType Basic
+require valid-user
+</Files>
+
 

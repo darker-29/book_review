@@ -29,9 +29,11 @@
 <div class="header">
     <div class="header-center">
         <h1 class="header-title">BOOK REVIEW</h1>
-            {!! Form::open(['route' => 'book.search', 'class' => 'search__text', 'method' => 'POST']) !!}
-                <input type="text" name="searchWord" id="js-search-word" class="search__text__input" placeholder="書籍名、著者、出版社">
+            {!! Form::open(['route' => 'book.select', 'method' => 'GET', 'class' => 'search__text']) !!}
+                {!! Form::text('word', null, ['id' => 'js-search-word', 'class' => 'search__text__input', 'placeholder' => '書籍名、著者、出版社']) !!}
                 <button type="submit" class="search-icon"><i class="fab fa-searchengin"></i></button>
+                {!! Form::hidden('page', 1) !!}
+                {!! Form::hidden('num', null) !!}
             {!! Form::close() !!}
         <div class="menu-box">
             <button type="submit" class="menu-icon"><i class="fas fa-ellipsis-h"></i></button>
@@ -123,7 +125,7 @@
         $('.js-modal-close').on('click',function(){
             $('.js-modal').fadeOut();
             return false;
-        }); 
+        });
         // ------------------------------------------------------------------------
         // -----------------------トップスクロールボタン処理---------------------------
         $('.scrolltop_btn').click(function () {

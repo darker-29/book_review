@@ -15,23 +15,44 @@ class Review extends Model
     ];
 
     protected $dates = [
-        'created_at',
-        'updated_at',
         'deleted_at',
     ];
 
     public function books()
     {
-        return $this->belongsTo('App\Book');
+        return $this->belongsTo('App\Models\Book');
     }
 
-    public function users()
+    public function user()
     {
-        $this->belongsTo('App\User');
+        return $this->belongsTo('App\Models\User');
     }
 
     public function saveContent($BookContent)
     {
         return $this->create($BookContent);
+    }
+
+    public function fetchEvaluations($books)
+    {
+        foreach ($books['Items'] as &$book) {
+            $reviews = $this->where('ISBN', $book['Item']['isbn'])->get();
+            if($reviews->count()) {
+                $numberOfReviews = $reviews->count();
+                $evaluationAverage = $reviews->sum('evaluation')/$numberOfReviews;
+                $book['Item']['numberOfReviews'] = $numberOfReviews;
+                $book['Item']['evaluationAverage'] = $evaluationAverage;
+            }
+        }
+        unset($book);
+        return $books;
+    }
+
+    public function selectReviews($isbn)
+    {
+        return $this->where('ISBN', $isbn)
+                    ->orderBy('updated_at', 'desc')
+                    ->with(['user'])
+                    ->get();
     }
 }

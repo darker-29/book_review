@@ -20,10 +20,10 @@ class Review extends Model
 
     public function books()
     {
-        return $this->belongsTo('App\Book');
+        return $this->belongsTo('App\Models\Book');
     }
 
-    public function users()
+    public function user()
     {
         return $this->belongsTo('App\Models\User');
     }
@@ -50,6 +50,9 @@ class Review extends Model
 
     public function selectReviews($isbn)
     {
-        return $this->where('ISBN', $isbn)->orderBy('updated_at', 'desc')->get();
+        return $this->where('ISBN', $isbn)
+                    ->orderBy('updated_at', 'desc')
+                    ->with(['user'])
+                    ->get();
     }
 }

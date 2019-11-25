@@ -44,7 +44,7 @@ class BookController extends Controller
         $searchKey = $this->booksApi->wordComparison($inputKey, $data);
         $request->session()->put(['searchword' => $searchKey['searchWord'], 'pageNum' => $searchKey['page']]);
         $bookInfos = $this->booksApi->indexShow($searchKey);
-        // $request->flash();
+        $request->flash();
         return view('book.index', compact('bookInfos', 'searchKey'));
     }
 
@@ -53,9 +53,7 @@ class BookController extends Controller
      */
     public function reviewList($isbn)
     {
-        // dd($isbn);
         $selectBook = $this->booksApi->selectBookData($isbn);
-        // $isbn = 9788302608193; //ダミー
         $reviews = $this->review->selectReviews($isbn);
         return view('book.show', compact('selectBook', 'reviews'));
     }
@@ -86,9 +84,7 @@ class BookController extends Controller
         $bookContent['books_id'] = $this->book->getBookId($bookContent['ISBN']);
         // $bookContent['user_id'] = Auth::user();
         $bookContent['user_id'] = 12;
-        // dd($bookContent);
         $this->review->saveContent($bookContent);
-        // dd(12345);
         return redirect()->route('book.show', $bookContent['ISBN']);
     }
 

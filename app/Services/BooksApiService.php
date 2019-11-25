@@ -31,28 +31,28 @@ class BooksApiService
     public function wordComparison($inputKey, $data)
     {
         if (empty($inputKey['num'])) {
-            // dd('gorira');
+            // 検索ボタン押下
             return array(
-                'searchWord' => $inputKey['word'],
+                'searchWord' => urlencode($inputKey['word']),
                 'page' => 1,
             );
         } elseif ($data['searchword'] === $inputKey['word']) {
-            // dd('test');
+            // もっと見るボタン押下
             return array(
-                'searchWord' => $inputKey['word'],
+                'searchWord' => urlencode($inputKey['word']),
                 'page' => $data['pageNum']+1,
             );
         } else {
-            dd(1234);
+            // 例外処理;
             return array(
-                'searchWord' => $inputKey['word'],
+                'searchWord' => urlencode($inputKey['word']),
                 'page' => 1,
             );
         }
     }
 
     /**
-     * 一覧ページで最初に表示される書籍
+     * 書籍情報取得
      */
     public function indexShow($searchKey)
     {
@@ -72,39 +72,7 @@ class BooksApiService
     }
 
     /**
-     * 検索ボタンを押下で１ページのみ取得
-     */
-    // public function firstSelectPage($searchWord)
-    // {
-    //     $format = self::RAKUTEN_FORMAT;
-    //     $title = 'title='.$searchWord;
-    //     $hits = self::RAKUTEN_HITS;
-    //     $applicationId = 'applicationId='.$this->applicationId;
-    //     $page = self::RAKUTEN_PAGE;
-    //     $booksGenreId = 'booksGenreId='.$this->booksGenreId;
-
-    //     $response = $this->client->request('GET', '?'.$format.'&'.$title.'&'.$hits.'&'.$applicationId.'&'.$page.'&'.$booksGenreId);
-    //     return json_decode($response->getBody()->getContents(), true);
-    // }
-
-    /**
-     * もっと見るボタンで書籍データ取得
-     */
-    // public function searchBooks($pageNumber, $word)
-    // {
-    //     $format = self::RAKUTEN_FORMAT;
-    //     $keyword = 'keyword='.$word;
-    //     $booksGenreId = 'booksGenreId='.$this->booksGenreId;
-    //     $hits = self::RAKUTEN_HITS;
-    //     $page = 'page='.$pageNumber;
-    //     $applicationId = 'applicationId='.$this->applicationId;
-
-    //     $response = $this->client->request('GET', '?'.$format.'&'.$keyword.'&'.$booksGenreId.'&'.$hits.'&'.$page.'&'.$applicationId);
-    //     return json_decode($response->getBody()->getContents(), true);
-    // }
-
-    /**
-     * 内部API　選択された書籍情報取得
+     * 選択された書籍情報のみ取得
      */
     public function selectBookData($isbn)
     {

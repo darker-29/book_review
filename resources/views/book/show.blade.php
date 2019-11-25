@@ -15,7 +15,7 @@
       <div class="side_right_review">
         <div class="side_right_user">
           <img  class="side_right_avatar" src="/image/GitHubLogo.png" alt="ユーザーアバター">
-          <p class="side_right_avatar_name"><p>
+          <p class="side_right_avatar_name">{{ $review->user->name }}<p>
         </div>
         <div class="side_right_content">
           <p class="side_right_evaluation">評価:
@@ -46,7 +46,6 @@
     <!-- 編集modal表示非表示 -->
     <div id="modal04" class="modal js-modal modal-create">
         <div class="modal-edit-content">
-          <!-- <form> -->
             {!! Form::open(['route' => ['book.create']]) !!}
             <div class="modal-top clearfix">
               <div class="evaluation">
@@ -66,14 +65,12 @@
             </div>
             <div class="modal-down-create">
                 <p class="modal-down-create-title">内容 :</p>
-            <!-- <textarea class="modal-create-down">ここにレビューを記入してください。</textarea> -->
             {!! Form::textarea('content', null, ['class' => 'modal-create-down', 'placeholder' => 'ここにレビューを記入してください。']) !!}
             {!! Form::hidden('ISBN', $selectBook['isbn']) !!}
             </div>
             <div class="modal-edit-book">
               <button type="submit" class="modal-create-book-btn">投稿する</button>
             </div>
-          <!-- </form> -->
           {!! Form::close() !!}
         </div>
     </div>

@@ -18,7 +18,6 @@ class Book extends Model
 
     public function saveBook($isbn)
     {
-        // dd($isbn);
         return $this->firstOrCreate(['ISBN' => $isbn]);
     }
 

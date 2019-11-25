@@ -29,6 +29,11 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    'rakuten' => [
+        'applicationId' => env('RAKUTEN_APP_ID'),
+        'booksGenreId' => env('RAKUTEN_GENRE_ID'),
+        'url' => env('RAKUTEN_URL'),
+    ],
 
 //     'github' => [
 //         'client_id' => env('GITHUB_CLIENT_ID'),

@@ -16,8 +16,15 @@ class Book extends Model
         'deleted_at',
     ];
 
-    public function saveBook($json)
+    public function saveBook($isbn)
     {
-        return $this->firstOrCreate(['ISBN' => $json['ISBN']]);
+        // dd($isbn);
+        return $this->firstOrCreate(['ISBN' => $isbn]);
+    }
+
+    public function getBookId($isbn)
+    {
+        $selectBook = $this->where('ISBN', $isbn)->first();
+        return $selectBook['id'];
     }
 }

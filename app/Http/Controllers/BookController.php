@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ReviewsRequest;
-use App\Book;
-use App\Review;
+use App\Models\Book;
+use App\Http\Requests\SearchRequest;
+use App\Models\Review;
 use App\Services\BooksApiService;
 
 class BookController extends Controller
@@ -24,33 +25,39 @@ class BookController extends Controller
     /**
      * 検索一覧ページ
      */
-    public function index()
+    public function index(SearchRequest $request)
     {
-        $pageNumber = 1;
-        $bookInfos = $this->booksApi->indexShow($pageNumber);
-        return view('book.index', compact('bookInfos'));
+        $searchKey = $request->all();
+        $bookInfos = $this->booksApi->indexShow($searchKey);
+        $bookInfo = $this->review->fetchEvaluations($bookInfos);
+        $request->session()->flush();
+        return view('book.index', compact('bookInfos', 'searchKey'));
     }
 
     /**
-     * searchボタン押下時アクション
+     * 検索ボタンを押下
      */
-    public function searchBooks(Request $request)
+    public function firstSelectBook(SearchRequest $request)
     {
-        $pageNumber = 1;
-        $searchWord = $request['searchWord'];
-        $booksSearched = $this->booksApi->searchBooks($pageNumber, $searchWord);
-        $bookInfos = $this->review->fetchEvaluations($booksSearched);
-        return view('book.index', compact('bookInfos'));
+        $inputKey = $request->all();
+        $data = $request->session()->all();
+        $searchKey = $this->booksApi->wordComparison($inputKey, $data);
+        $request->session()->put(['searchword' => $searchKey['searchWord'], 'pageNum' => $searchKey['page']]);
+        $bookInfos = $this->booksApi->indexShow($searchKey);
+        // $request->flash();
+        return view('book.index', compact('bookInfos', 'searchKey'));
     }
 
     /**
      * レビュー一覧(本に対して)
      */
-    public function reviewList(Request $request, $id)
+    public function reviewList($isbn)
     {
-        $json = $request->all();
-        $selectBook = $this->book->saveBook($json);
-        return view('book.show', compact('json', 'selectBook'));
+        // dd($isbn);
+        $selectBook = $this->booksApi->selectBookData($isbn);
+        // $isbn = 9788302608193; //ダミー
+        $reviews = $this->review->selectReviews($isbn);
+        return view('book.show', compact('selectBook', 'reviews'));
     }
 
     /**
@@ -74,10 +81,15 @@ class BookController extends Controller
      */
     public function  reviewCreate(ReviewsRequest $request)
     {
-        $BookContent = $request->all();
-        $BookContent['user_id'] = Auth::id();
-        $this->review->saveContent($BookContent);
-        return redirect()->route('book.show', $BookContent['ISBN']);
+        $bookContent = $request->all();
+        $this->book->saveBook($bookContent['ISBN']);
+        $bookContent['books_id'] = $this->book->getBookId($bookContent['ISBN']);
+        // $bookContent['user_id'] = Auth::user();
+        $bookContent['user_id'] = 12;
+        // dd($bookContent);
+        $this->review->saveContent($bookContent);
+        // dd(12345);
+        return redirect()->route('book.show', $bookContent['ISBN']);
     }
 
     /**
@@ -95,4 +107,5 @@ class BookController extends Controller
     {
         //
     }
+
 }

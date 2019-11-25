@@ -1,6 +1,5 @@
 @extends ('common.layout')
 @section ('content')
-
   <h2 class="index-header-title index-header-title-list">書籍一覧</h2>
   <h2 class="index-header-title index-header-title-result hidden">検索結果</h2>
 <div class="wrap">
@@ -10,7 +9,10 @@
           @foreach($bookInfos['Items'] as $bookInfo)
             <li class="lists__item">
               <div class="list_item_inner">
-                <img  class="book" src="{{ $bookInfo['Item']['largeImageUrl'] }}" alt="本の画像">
+                {!! Form::open(['route' => ['book.show', 'isbn' => $bookInfo['Item']['isbn']], 'method' => 'GET']) !!}
+                {!! Form::image($bookInfo['Item']['largeImageUrl'], 'img', ['alt' => '本の画像']) !!}
+                {!! Form::hidden('isbn', $bookInfo['Item']['isbn']) !!}
+                {!! Form::close() !!}
                 <div class="list_item_info">
                   <div class="book_info">
                     <p class="lists__item__title clearfix">{{ $bookInfo['Item']['title'] }}</p>
@@ -43,9 +45,13 @@
           @endforeach
         </ul>
       </div>
-      <div class="more_book">
-        <button type="submit" class="more_book_btn">もっと見る</button>
-      </div>
-    <button type="submit" class="scrolltop_btn"><i class="far fa-arrow-alt-circle-up"></i></button>
+      {!! Form::open(['route' => 'book.select', 'method' => 'GET']) !!}
+        <div class="more_book">
+          {!! Form::hidden('word', $searchKey['searchWord'] ?? '') !!}
+          {!! Form::hidden('num', 1) !!}
+          {!! Form::submit('もっと見る', ['class' => 'more_book_btn']) !!}
+        </div>
+        {!! form::button('<i class="far fa-arrow-alt-circle-up"></i>', ['class' => 'scrolltop_btn', 'type' => 'submit']) !!}
+      {!! Form::close() !!}
     </div>
 @endsection

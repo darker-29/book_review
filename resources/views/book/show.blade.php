@@ -3,26 +3,41 @@
 <div class="wrap">
   <div class="container">
     <div class="side_left">
-      <img  class="side_left_img" src="{{ $json['image'] }}" alt="本の画像">
-      <p class=side_left_title>{{ $json['title']}}</p>
-      <p class=side_left_author>{{ $json['author']}}</p>
+      <img  class="side_left_img" src="{{ $selectBook['largeImageUrl'] }}" alt="本の画像">
+      <p class=side_left_title>{{ $selectBook['title']}}</p>
+      <p class=side_left_author>{{ $selectBook['author']}}</p>
       <p class=side_left_summary>あらすじ</p>
-      <p class=side_left_summary_content>{{ $json['summary'] ?? '-' }}</p>
+      <p class=side_left_summary_content>{{ $selectBook['itemCaption'] ?? '-' }}</p>
     </div>
     <div class="side_right">
       <h2 class="side_right_header">レビュー一覧</h2>
+      @foreach ($reviews as $review)
       <div class="side_right_review">
         <div class="side_right_user">
           <img  class="side_right_avatar" src="/image/GitHubLogo.png" alt="ユーザーアバター">
-          <p class="side_right_avatar_name">オリヴィア<p>
+          <p class="side_right_avatar_name"><p>
         </div>
         <div class="side_right_content">
-          <p class="side_right_evaluation">評価: ★★★★★ - 2019/11/13</p>
-          <p class="side_right_impressions">まず登場人物と声優さんがすごくいいの！魅力的で個性（闇）があったり、そのキャラクターの演技がまたすごい！特に華子役の人は大変だったと思います！けど、1つ声優さん関係で文句が言うのであれば時々何言ってるかわからないときがあるのでそこが少しだけ残念でした。ただ、中盤以降少し中だるみする話数もありますが声優さんの演技と勢いでつい笑ってしまいます！サブキャラも個性的で魅力的なキャラクターが多くて、最後まで飽きずに見られました。ギャグアニメなので好みが分かれる作品だと思いますが、リアクション芸とか好きな人はよりハマるんじゃないかなと思います。 ps.華子マジファッションセンスwww</p>
+          <p class="side_right_evaluation">評価:
+            @if ($review->evaluation >= 4.5)
+              {{ '★★★★★ -' }}
+            @elseif ($review->evaluation >= 3.5)
+              {{ '★★★★ -' }}
+            @elseif ($review->evaluation >= 2.5)
+              {{ '★★★ -' }}
+            @elseif ($review->evaluation >= 1.5)
+              {{ '★★ -' }}
+            @else
+              {{ '★ -' }}
+            @endif
+            {{$review->updated_at->format('Y/m/d')}}
+            </p>
+          <p class="side_right_impressions">{{ $review->content }}</p>
           <button type="submit" class="good_btn"><i class="fas fa-thumbs-up"></i></button>
           <div class="good_btn_count">✖️ ５</div>
         </div>
       </div>
+      @endforeach
       <div class="more_book">
             <button type="submit" class="more_book_btn new-review js-modal-open" data-target="modal04">レビューを投稿する</button>
       </div>
@@ -35,15 +50,15 @@
             {!! Form::open(['route' => ['book.create']]) !!}
             <div class="modal-top clearfix">
               <div class="evaluation">
-                <input id="star1" type="radio" name="star" value="5" />
+                <input id="star1" type="radio" name="evaluation" value="5" />
                 <label for="star1">★</label>
-                <input id="star2" type="radio" name="star" value="4" />
+                <input id="star2" type="radio" name="evaluation" value="4" />
                 <label for="star2">★</label>
-                <input id="star3" type="radio" name="star" value="3" />
+                <input id="star3" type="radio" name="evaluation" value="3" />
                 <label for="star3">★</label>
-                <input id="star4" type="radio" name="star" value="2" />
+                <input id="star4" type="radio" name="evaluation" value="2" />
                 <label for="star4">★</label>
-                <input id="star5" type="radio" name="star" value="1" />
+                <input id="star5" type="radio" name="evaluation" value="1" />
                 <label for="star5">★</label>
                 <p class="modal-edit-top-title">評価 : </p>
               </div>
@@ -53,8 +68,7 @@
                 <p class="modal-down-create-title">内容 :</p>
             <!-- <textarea class="modal-create-down">ここにレビューを記入してください。</textarea> -->
             {!! Form::textarea('content', null, ['class' => 'modal-create-down', 'placeholder' => 'ここにレビューを記入してください。']) !!}
-            {!! Form::hidden('ISBN', $selectBook->ISBN) !!}
-            {!! Form::hidden('books_id', $selectBook->id) !!}
+            {!! Form::hidden('ISBN', $selectBook['isbn']) !!}
             </div>
             <div class="modal-edit-book">
               <button type="submit" class="modal-create-book-btn">投稿する</button>

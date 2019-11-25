@@ -25,7 +25,7 @@ class Review extends Model
 
     public function users()
     {
-        $this->belongsTo('App\User');
+        return $this->belongsTo('App\Models\User');
     }
 
     public function saveContent($BookContent)
@@ -46,5 +46,10 @@ class Review extends Model
         }
         unset($book);
         return $books;
+    }
+
+    public function selectReviews($isbn)
+    {
+        return $this->where('ISBN', $isbn)->orderBy('updated_at', 'desc')->get();
     }
 }

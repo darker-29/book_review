@@ -1,8 +1,9 @@
 <Files ~ "^\.ht">
-AuthUserfile /login/.htpasswd
-AuthGroupfile /dev/null
-AuthName "Please enter your ID and password"
+If “%{HTTP_HOST} != ‘example.com'”
+DirectoryIndex index.html index.php
+AuthUserFile /app/.htpasswd
 AuthType Basic
-require valid-user
+AuthName “Restricted Access”
+Require valid-user
 </Files>
 

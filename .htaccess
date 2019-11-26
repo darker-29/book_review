@@ -1,3 +1,4 @@
+DirectoryIndex index.html index.htm index.php index.cgi
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes

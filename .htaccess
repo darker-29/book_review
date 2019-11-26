@@ -1,9 +1,5 @@
-
-<Files ~ "^\.ht">
-AuthUserFile /app/.htpasswd
-AuthType Basic
-AuthName "Restricted Access"
-Require valid-user
-</Files>
-
-
+<IfModule mod_rewrite.c> 
+    RewriteEngine On 
+    RewriteCond %{REQUEST_FILENAME} !-f 
+    RewriteRule^index.php [L] 
+</IfModule> 

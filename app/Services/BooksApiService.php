@@ -90,4 +90,5 @@ class BooksApiService
             "itemCaption" => $json['Items'][0]['Item']['itemCaption'],
         );
     }
+
 }

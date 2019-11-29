@@ -63,8 +63,16 @@ class BookController extends Controller
      */
     public function mypage()
     {
-        return view('book.mypage');
+        // $userId = Auth::id(); //Auth::idがとれなかったので
+        //代用で１２を入れています
+        $userId = 12;
+        $myReviews = $this->review->selectMyRecords($userId);
+        return view('book.mypage', compact('myReviews'));
     }
+
+    /**
+     * 編集するレコード取得
+     */
 
     /**
      * user一覧

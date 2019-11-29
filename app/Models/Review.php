@@ -55,4 +55,9 @@ class Review extends Model
                     ->with(['user'])
                     ->get();
     }
+
+    public function selectMyRecords($userId)
+    {
+        return $this->where('user_id', $userId)->get();
+    }
 }
